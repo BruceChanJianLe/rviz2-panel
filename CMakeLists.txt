@@ -66,23 +66,14 @@ add_library(${library_name} SHARED
   ${${PROJECT_NAME}_MOCS} 
 )
 ament_target_dependencies(${library_name} ${dependencies_pkgs})
-target_link_libraries(${library_name}
-  # Qt5::Widgets
-  rviz_common::rviz_common
-)
+target_link_libraries(${library_name} rviz_common::rviz_common)
 
 # I prefer the Qt signals and slots to avoid defining "emit", "slots",
 # etc because they can conflict with boost signals, so define QT_NO_KEYWORDS here
 # e.g. http://muddyazian.blogspot.de/2012/04/getting-qt-app-working-with-boost-using.html
 target_compile_definitions(${library_name} PRIVATE QT_NO_KEYWORDS)
 
-# Causes the visibility macros to use dllexport rather than dllimport,
-# which is appropriate when building the dll but not consuming it.
-# TODO: Make this specific to this project (not rviz default plugins)
-# target_compile_definitions(${library_name} PRIVATE "RVIZ_DEFAULT_PLUGINS_BUILDING_LIBRARY")
-
 # install
-
 pluginlib_export_plugin_description_file(rviz_common rviz2_plugin.xml)
 
 install(
