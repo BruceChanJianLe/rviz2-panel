@@ -1,0 +1,9 @@
+<library path="push_button_rviz_panel">
+
+  <class name="custom_panel/RvizPushButtonPanel"
+         type="custom_panel::RvizPushButtonPanel"
+         base_class_type="rviz_common::Panel">
+    <description>Rviz Push Button Panel</description>
+  </class>
+
+</library>
