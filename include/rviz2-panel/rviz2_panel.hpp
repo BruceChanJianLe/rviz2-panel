@@ -7,6 +7,8 @@
 #include <rviz_common/panel.hpp>
 // Qt
 #include <QtWidgets>
+// STL
+#include <memory>
 /** 
  *  Include header generated from ui file
  *  Note that you will need to use add_library function first

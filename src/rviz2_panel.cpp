@@ -1,6 +1,4 @@
 #include "rviz2-panel/rviz2_panel.hpp"
-#include <memory>
-#include <rviz_common/config.hpp>
 
 namespace custom_panel
 {
