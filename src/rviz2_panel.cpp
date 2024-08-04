@@ -67,5 +67,5 @@ namespace custom_panel
 
 } // custom_panel
 
-#include <pluginlib/class_list_macros.h>
+#include <pluginlib/class_list_macros.hpp>
 PLUGINLIB_EXPORT_CLASS(custom_panel::RvizPushButtonPanel, rviz_common::Panel)
