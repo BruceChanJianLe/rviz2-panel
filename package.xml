@@ -2,13 +2,14 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>rviz2-panel</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>
     This repository demonstrates the method for writing a rviz2 dock-able panel.
   </description>
   <maintainer email="jianle001@e.ntu.edu.sg">Bruce Chan Jian Le</maintainer>
   <license>MIT</license>
 
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
   <buildtool_depend>ament_cmake</buildtool_depend>
   <build_depend>qtbase5-dev</build_depend>
 
@@ -26,5 +27,6 @@
 
   <export>
     <build_type>ament_cmake</build_type>
+    <rviz plugin="${prefix}/plugin_description.xml"/>
   </export>
 </package>
