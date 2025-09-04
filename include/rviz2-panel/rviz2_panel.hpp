@@ -5,6 +5,7 @@
 #include <std_msgs/msg/bool.hpp>
 // RVIZ2
 #include <rviz_common/panel.hpp>
+#include <rviz_common/ros_integration/ros_node_abstraction_iface.hpp>
 // Qt
 #include <QtWidgets>
 // STL
@@ -25,6 +26,8 @@ namespace custom_panel
     explicit RvizPushButtonPanel(QWidget *parent = nullptr);
     ~RvizPushButtonPanel();
 
+    void onInitialize() override;
+
     /// Load and save configuration data
     virtual void load(const rviz_common::Config &config) override;
     virtual void save(rviz_common::Config config) const override;
@@ -36,9 +39,10 @@ namespace custom_panel
   private:
     std::unique_ptr<Ui::gui> ui_;
     rclcpp::Node::SharedPtr node_;
-    uint16_t count_button_1_, count_button_2_;
+    int count_button_1_, count_button_2_;
 
   protected:
+    std::shared_ptr<rviz_common::ros_integration::RosNodeAbstractionIface> node_ptr_;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr button1_pub_;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr button2_pub_;
     std_msgs::msg::Bool msg_;
